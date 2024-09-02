@@ -18,7 +18,7 @@ $$\Sigma_{A,1}(K) = \Sigma_{A,1}(ATM) + s_{A,1} x + \kappa_{A,1} x^2 + O(x^3)$$
 
 The first three coefficients $\Sigma_{A,1}(ATM), s_{A,1}, \kappa_{A,1}$ are given in the paper: 
 
-$$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ), s_A = -\frac{34}{23625} \sigma^2(\sigma^2 T), \kappa_A = \sigma^2( \frac{1657}{4158000}(\sigma^2 T) - \frac{5}{2016} (rT))$$
+$$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ), s_{A,1} = -\frac{34}{23625} \sigma^2(\sigma^2 T), \kappa_{A,1} = \sigma^2( \frac{1657}{4158000}(\sigma^2 T) - \frac{5}{2016} (rT))$$
 
 ## **Example**
 
