@@ -25,12 +25,12 @@ $$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ),
 Suppose we would like to price an Asian option in the Black-Scholes model with parameters $S_0=2, \sigma=0.1, r=0.02, q=0$. The Asian option has strike $K=2.0$ and maturity $T=1$ year.
 The forward of the Asian option is $F(T) = 2.02013$, so the log-moneyness is $x=\log(2.0/2.02013) = -0.01$. The Asian option is slightly in-the-money.
 
-The zero-th order Asian implied volatility is  $\Sigma_{A,0}(2.0) = 0.057677$. Adding also the subleading $O(T)$ corrections this becomes $0.057817$. Substituting into the Black-Scholes formula we get
+The zero-th order Asian implied volatility is  $\Sigma_{A,0}(2.0) = 0.057677$. Adding also the subleading $O(T)$ corrections this becomes $0.057817$. Substituting into the Black-Scholes formula we get the Asian option price
 
 $$C_A = e^{-rT} C_{BS}(K=2.0, T=1; F(T) = 2.02013,\Sigma_A=0.057817) = 0.0559859$$
 
-where the undiscounted Black-Scholes call price is
+where the undiscounted Black-Scholes call formula is
 
 $$C_{BS}(K,T;F,\sigma) = F N(d_1) - K N(d_2),\quad d_{1,2}=\frac{1}{\sigma\sqrt{T}}(\log(K/F) \pm \frac12 \sigma^2 T)$$
 
-
+The computed price is slightly smaller than the price from the log-normal (Levy) approximation (0.056054) but in excellent agreement with a precise evaluation using a spectral expansion by [Linetsky](https://www.risk.net/derivatives/equity-derivatives/1530383/exotic-spectra) (0.0559860415).
