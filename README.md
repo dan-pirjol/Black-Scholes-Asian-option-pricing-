@@ -7,14 +7,25 @@ The Asian option price with strike $K$ and maturity $T$ is computed from the Bla
 
 The Asian implied volatility is expanded in maturity $$\Sigma_A(K,T) = \Sigma_{A,0}(K) + T \Sigma_{A,1}(K) + O(T^2)$$
 
-The zero-th order term $\Sigma_{A,0}(K)$ is known exactly from [Pirjol, Zhu (2015)](https://arxiv.org/abs/1609.07559). 
-The $O(T)$ term is given here in an expansion in log-moneyness $x = \log(K/F(T))$ as
+The zero-th order term $\Sigma_{A,0}(K)$ is known exactly from [Pirjol, Zhu (2015)](https://arxiv.org/abs/1609.07559). For $K$ sufficiently close to the spot price it is well approximated by the series expansion in log-moneyness $x = \log(K/F(T))$ as
 
-$$\Sigma_{A,1}(K) = \Sigma_{A,1}(F(T)) + s_A x + \kappa_A x^2 + O(x^3)$$
+$$\Sigma_{A,0}(K) = \frac{\sigma}{\sqrt3} \Big( 1 +\frac15 x - \frac{1}{84} x^2 - \frac{1}{17}{10500} x^3 + O(x^4)\Big) $$
+
+
+The $O(T)$ term is also expanded in log-moneyness as
+
+$$\Sigma_{A,1}(K) = \Sigma_{A,1}(ATM) + s_{A,1} x + \kappa_{A,1} x^2 + O(x^3)$$
+
+The first three coefficients $\Sigma_{A,1}(ATM), s_{A,1}, \kappa_{A,1}$ are given in the paper: $$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) )$$
 
 ## **Example**
 
 Suppose we would like to price an Asian option in the Black-Scholes model with parameters $S_0=2, \sigma=0.1, r=0.02, q=0$. The Asian option has strike $K=2.0$ and maturity $T=1$ year.
+The forward of the Asian option is $F(T) = 2.02013$, so the log-moneyness is $x=\log(2.0/2.02013) = -0.01$. The Asian option is slightly in-the-money.
+
+The zero-th order Asian implied volatility is  $\Sigma_{A,0}(2.0) = 0.057677$. Adding also the subleading $O(T)$ corrections this becomes $0.057817$. Substituting into the Black-Scholes formula we get
+
+$$C_A = e^{-rT} C_{BS}(K=2.0, T=1; F(T) = 2.02013,\Sigma_A=0.057817) = 0.0559859$$
 
 
 
