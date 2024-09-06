@@ -7,7 +7,22 @@ The Asian option price with strike $K$ and maturity $T$ is computed from the Bla
 
 The Asian implied volatility is expanded in maturity $$\Sigma_A(K,T) = \Sigma_{A,0}(K) + T \Sigma_{A,1}(K) + O(T^2)$$
 
-The zero-th order term $\Sigma_{A,0}(K)$ is known exactly from [Pirjol, Zhu (2015)](https://arxiv.org/abs/1609.07559). For $K$ sufficiently close to the spot price it is well approximated by the series expansion in log-moneyness $x = \log(K/F(T))$ as
+The zero-th order term $\Sigma_{A,0}(K)$ is known exactly from [Pirjol, Zhu (2015)](https://arxiv.org/abs/1609.07559). This is 
+
+$$\Sigma_{A,0}^2(K) = \frac{\log^2(K/F(T))}{2 J_{BS}(K, F(T))}$$
+
+where $J_{BS}(K,S_0)$ is the rate function for Asian options in the Black-Scholes model, given by
+
+$$J_{BS}(K,S_0) = 
+\begin{array}{cc}
+\frac12 x^2 - x \tanh(x/2) & , K/S_0 \geq 1 \\
+y \tan(y/2) - \frac12 y^2  & , 0 < K/S_0 < 1 \\
+\end{array}
+$$
+
+where $x\geq 0$ is the solution of the equation $\frac{\sinh x}{x}=K/S_0$ and $y\in (0,\pi)$ is the solution of the equation $\frac{\sin y}{y} = K/S_0$.
+
+For $K$ sufficiently close to the spot price $\Sigma_{A,0}(K)$ is well approximated by the series expansion in log-moneyness $x = \log(K/F(T))$ as
 
 $$\Sigma_{A,0}(K) = \frac{\sigma}{\sqrt3} \Big( 1 +\frac15 x - \frac{1}{84} x^2 - \frac{17}{10500} x^3 + O(x^4)\Big) $$
 
@@ -31,6 +46,6 @@ $$C_A = e^{-rT} C_{BS}(K=2.0, T=1; F(T) = 2.02013,\Sigma_A=0.057817) = 0.0559859
 
 where the undiscounted Black-Scholes call formula is
 
-$$C_{BS}(K,T;F,\sigma) = F N(d_1) - K N(d_2),\quad d_{1,2}=\frac{1}{\sigma\sqrt{T}}(\log(K/F) \pm \frac12 \sigma^2 T)$$
+$$C_{BS}(K,T;F,\sigma) = F N(d_1) - K N(d_2),\quad d_{1,2}=\frac{1}{\sigma\sqrt{T}}(-\log(K/F) \pm \frac12 \sigma^2 T)$$
 
 The computed price is slightly smaller than the price from the log-normal (Levy) approximation (0.056054) but in excellent agreement with a precise evaluation using a spectral expansion by [Linetsky](https://www.risk.net/derivatives/equity-derivatives/1530383/exotic-spectra) (0.0559860415).
