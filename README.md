@@ -27,13 +27,13 @@ For $K$ sufficiently close to the spot price $\Sigma_{A,0}(K)$ is well approxima
 $$\Sigma_{A,0}(K) = \frac{\sigma}{\sqrt3} \Big( 1 +\frac15 x - \frac{1}{84} x^2 - \frac{17}{10500} x^3 + O(x^4)\Big) $$
 
 
-The $O(T)$ term is also expanded in log-moneyness as
+The subleading ($O(T)$) term of the Asian implied volatility is expanded in log-moneyness as
 
 $$\Sigma_{A,1}(K) = \Sigma_{A,1}(ATM) + s_{A,1} x + \kappa_{A,1} x^2 + O(x^3)$$
 
 The first three coefficients $\Sigma_{A,1}(ATM), s_{A,1}, \kappa_{A,1}$ are given in the paper: 
 
-$$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ), s_{A,1} = -\frac{34}{23625} \sigma^2(\sigma^2 T), \kappa_{A,1} = \sigma^2( \frac{1657}{4158000}(\sigma^2 T) - \frac{5}{2016} (rT))$$
+$$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ), s_{A,1} = \sigma^2(-\frac{34}{23625} (\sigma^2 T)), \kappa_{A,1} = \sigma^2( \frac{1657}{4158000}(\sigma^2 T) - \frac{5}{2016} (rT))$$
 
 ## **Example**
 
