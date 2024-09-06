@@ -3,7 +3,7 @@ Asian option pricer using the Asian implied volatility in the Black-Scholes mode
 
 This repository includes Mathematica code with the implementation of the method. The code was used for generating the plots in the paper [arXiv:2407.05142[q-fin.MF]](https://arxiv.org/abs/2407.05142). 
 
-The Asian option price with strike $K$ and maturity $T$ is computed from the Black-Scholes formula (as if were an European option) with the forward price $F(T) = S_0 \frac{e^{(r-q)T}-1}{(r-q)}$ and a special implied volatility $\Sigma_A(K,T)$ - the *Asian implied volatility*.
+The Asian option price with strike $K$ and maturity $T$ is computed from the Black-Scholes formula (as if were an European option) with the forward price $F(T) = S_0 \frac{e^{(r-q)T}-1}{(r-q)T}$ and a special implied volatility $\Sigma_A(K,T)$ - the *Asian implied volatility*.
 
 The squared Asian implied volatility is expanded in maturity as
 
