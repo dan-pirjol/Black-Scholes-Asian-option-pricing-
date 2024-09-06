@@ -5,7 +5,9 @@ This repository includes Mathematica code with the implementation of the method.
 
 The Asian option price with strike $K$ and maturity $T$ is computed from the Black-Scholes formula (as if were an European option) with the forward price $F(T) = S_0 \frac{e^{(r-q)T}-1}{(r-q)}$ and a special implied volatility $\Sigma_A(K,T)$ - the *Asian implied volatility*.
 
-The Asian implied volatility is expanded in maturity $$\Sigma_A(K,T) = \Sigma_{A,0}(K) + T \Sigma_{A,1}(K) + O(T^2)$$
+The squared Asian implied volatility is expanded in maturity as
+
+$$\Sigma_A^2(K,T) = \Sigma_{A,0}^2(K) + T \Sigma_{A,1}^2(K) + O(T^2)$$
 
 The zero-th order term $\Sigma_{A,0}(K)$ is known exactly from [Pirjol, Zhu (2015)](https://arxiv.org/abs/1609.07559). This is 
 
@@ -27,13 +29,13 @@ For $K$ sufficiently close to the spot price $\Sigma_{A,0}(K)$ is well approxima
 $$\Sigma_{A,0}(K) = \frac{\sigma}{\sqrt3} \Big( 1 +\frac15 x - \frac{1}{84} x^2 - \frac{17}{10500} x^3 + O(x^4)\Big) $$
 
 
-The subleading ($O(T)$) term of the Asian implied volatility is expanded in log-moneyness as
+The subleading (O(T)) term of the Asian implied variance is expanded in log-moneyness as
 
-$$\Sigma_{A,1}(K) = \Sigma_{A,1}(ATM) + s_{A,1} x + \kappa_{A,1} x^2 + O(x^3)$$
+$$\Sigma_{A,1}^2(K) = \Sigma_{A,1}^2(ATM) + s_{A,1} x + \kappa_{A,1} x^2 + O(x^3)$$
 
-The first three coefficients $\Sigma_{A,1}(ATM), s_{A,1}, \kappa_{A,1}$ are given in the paper: 
+The first three coefficients $\Sigma_{A,1}^2(ATM), s_{A,1}, \kappa_{A,1}$ are given in the paper: 
 
-$$\Sigma_{A,1}(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ), s_{A,1} = \sigma^2(-\frac{34}{23625} (\sigma^2 T)), \kappa_{A,1} = \sigma^2( \frac{1657}{4158000}(\sigma^2 T) - \frac{5}{2016} (rT))$$
+$$\Sigma_{A,1}^2(ATM)=\sigma^2 (-\frac{61}{9450} (\sigma^2 T)+\frac{1}{12} (rT) ), s_{A,1} = \sigma^2(-\frac{34}{23625} (\sigma^2 T)), \kappa_{A,1} = \sigma^2( \frac{1657}{4158000}(\sigma^2 T) - \frac{5}{2016} (rT))$$
 
 ## **Example**
 
