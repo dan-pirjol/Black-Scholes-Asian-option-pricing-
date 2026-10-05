@@ -26,7 +26,7 @@ where $x\geq 0$ is the solution of the equation $\frac{\sinh x}{x}=K/S_0$ and $y
 
 For $K$ sufficiently close to the spot price $\Sigma_{A,0}(K)$ is well approximated by the series expansion in log-moneyness $x = \log(K/F(T))$ as
 
-$$\Sigma_{A,0}(K) = \frac{\sigma}{\sqrt3} \Big( 1 +\frac15 x - \frac{1}{84} x^2 - \frac{17}{10500} x^3 + O(x^4)\Big) $$
+$$\Sigma_{A,0}^2(K) = \frac{\sigma^2}{3} \Big( 1 +\frac15 x - \frac{1}{84} x^2 - \frac{17}{10500} x^3 + O(x^4)\Big) $$
 
 
 The subleading (O(T)) term of the Asian implied variance is expanded in log-moneyness as
