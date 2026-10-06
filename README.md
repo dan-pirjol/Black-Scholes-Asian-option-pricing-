@@ -7,7 +7,9 @@ The Asian option price with strike $K$ and maturity $T$ is computed from the Bla
 
 The squared Asian implied volatility is expanded in maturity as
 
-$$\Sigma_A^2(K,T) = \Sigma_{A,0}^2(K) + T \Sigma_{A,1}^2(K) + O(T^2)$$
+$$\Sigma_A^2(K,T) = \Sigma_{A,0}^2(K) + \Sigma_{A,1}^2(K,T) + O(T^2)$$
+
+where $\Sigma_{A,0}(K) \sim O(T^0), \Sigma_{A,1}(K,T) \sim O(T)$.
 
 The zero-th order term $\Sigma_{A,0}(K)$ is known exactly from [Pirjol, Zhu (2015)](https://arxiv.org/abs/1609.07559). This is 
 
